@@ -36,4 +36,10 @@ class PostTableViewCell: UITableViewCell{
             bodyLabel?.text = post.body
         }
     }
+    
+    
+//    @IBAction func share() {
+//        let shareAlertController = UIAlertController(title: "Share", message: nil, preferredStyle: UIAlertControllerStyle.ActionSheet)
+//        
+//    }
 }

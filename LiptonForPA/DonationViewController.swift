@@ -105,7 +105,15 @@ class DonationViewController: UIViewController, PayPalPaymentDelegate {
     
     // MARK: Single Payment
     func makeDonation(donationAmount: Double) {
-
+        // Remove our last completed payment, just for demo purposes.
+//        resultText = ""
+        
+        // Note: For purposes of illustration, this example shows a payment that includes
+        //       both payment details (subtotal, shipping, tax) and multiple items.
+        //       You would only specify these if appropriate to your situation.
+        //       Otherwise, you can leave payment.items and/or payment.paymentDetails nil,
+        //       and simply set payment.amount to your total charge.
+        
         let payment = PayPalPayment(amount: NSDecimalNumber(double: donationAmount), currencyCode: "USD", shortDescription: "Alex Lipton for State Representative", intent: .Sale)
         
         if (payment.processable) {
@@ -127,6 +135,8 @@ class DonationViewController: UIViewController, PayPalPaymentDelegate {
     
     func payPalPaymentDidCancel(paymentViewController: PayPalPaymentViewController!) {
         print("PayPal Payment Cancelled")
+//        resultText = ""
+//        successView.hidden = true
         paymentViewController?.dismissViewControllerAnimated(true, completion: nil)
     }
     
@@ -135,6 +145,20 @@ class DonationViewController: UIViewController, PayPalPaymentDelegate {
         paymentViewController?.dismissViewControllerAnimated(true, completion: { () -> Void in
             // send completed confirmaion to your server
             print("Here is your proof of payment:\n\n\(completedPayment.confirmation)\n\nSend this to your server for confirmation and fulfillment.")
+            
+//            self.resultText = completedPayment!.description
+//            self.showSuccess()
         })
     }
+
+    /*
+    // MARK: - Navigation
+
+    // In a storyboard-based application, you will often want to do a little preparation before navigation
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        // Get the new view controller using segue.destinationViewController.
+        // Pass the selected object to the new view controller.
+    }
+    */
+
 }

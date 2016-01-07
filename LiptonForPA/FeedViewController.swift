@@ -19,12 +19,14 @@ class FeedViewController: UIViewController, UITableViewDataSource, UITableViewDe
         getPostsForFeed()
     }
     
-    @IBOutlet weak var likeButton: FBSDKLikeButton!
     var refreshControl:UIRefreshControl!
     
     override func viewWillAppear(animated: Bool) {
         configureTableView()
-        likeButton.objectID = "https://www.facebook.com/LiptonForPA"
+        addLikeButton()
+//        addMenuButton()
+        
+        
         self.refreshControl = UIRefreshControl()
         self.refreshControl.attributedTitle = NSAttributedString(string: "refresh")
         self.refreshControl.addTarget(self, action: "refresh:", forControlEvents: UIControlEvents.ValueChanged)
@@ -44,19 +46,70 @@ class FeedViewController: UIViewController, UITableViewDataSource, UITableViewDe
         postFeedTableView.estimatedRowHeight = 160.0
     }
     
+    @IBOutlet weak var likeButton: FBSDKLikeButton!   
+    
+    func addLikeButton() {
+//        let likeButton = FBSDKLikeControl()
+        likeButton.objectID = "https://www.facebook.com/LiptonForPA"
+//        likeButton.center = CGPoint(x: view.frame.width - 37, y: 35)
+//        self.view.addSubview(likeButton)
+    }
+    
+//    func addMenuButton() {
+//        let image = UIImage(named: "menuButton.png")!
+//        let menuButton = UIButton(frame: CGRectMake(6, 20, image.size.width, image.size.height))
+//        menuButton.setImage(image, forState: UIControlState.Normal)
+//        menuButton.setTitle("Menu", forState: UIControlState.Normal)
+//        menuButton.addTarget(self, action: "loadNavMenu:", forControlEvents: UIControlEvents.TouchUpInside)
+//        self.view.addSubview(menuButton)
+//    }
+//    
+//    func loadNavMenu(sender: UIButton!) {
+//        let optionMenu = UIAlertController(title: nil, message: "Alex Lipton", preferredStyle: .ActionSheet)
+//        let feedAction = UIAlertAction(title: "Main", style: .Default, handler: {
+//            (alert: UIAlertAction!) -> Void in
+//            print("Navigate To Feed")
+////            self.presentViewController(FeedViewController(), animated: true, completion: nil)
+//        })
+//        let platformAction = UIAlertAction(title: "Platform", style: .Default, handler: {
+//            (alert: UIAlertAction!) -> Void in
+//            print("Navigate To Platform")
+//            self.presentViewController(PlatformViewController(), animated: true, completion: nil)
+//        })
+//        let donationAction = UIAlertAction(title: "Donate", style: .Default, handler: {
+//            (alert: UIAlertAction!) -> Void in
+//            print("Navigate To Donation")
+//            self.presentViewController(DonationViewController(), animated: true, completion: nil)
+//        })
+//        let logoutAction = UIAlertAction(title: "Logout", style: .Cancel, handler: {
+//            (alert: UIAlertAction!) -> Void in
+//            print("Navigate To Logout")
+//            self.showViewController(LoginViewController(), sender: nil)
+//        })
+//        optionMenu.addAction(feedAction)
+//        optionMenu.addAction(platformAction)
+//        optionMenu.addAction(donationAction)
+//        optionMenu.addAction(logoutAction)
+//
+//        self.presentViewController(optionMenu, animated: true, completion: nil)
+//    }
+    
     // MARK: - Post Feed TableView
     
     @IBOutlet weak var postFeedTableView: UITableView!
     
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+        // #warning Potentially incomplete method implementation.
         // Return the number of sections.
         return 1
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        // #warning Incomplete method implementation.
         // Return the number of rows in the section.
         return fbFeed.count
     }
+    
     
     private struct Storyboard {
         static let CellReuseIdentifier1 = "Post Cell With Image"
@@ -79,6 +132,7 @@ class FeedViewController: UIViewController, UITableViewDataSource, UITableViewDe
             
             return cell
         }
+        
     }
     
     
@@ -100,6 +154,7 @@ class FeedViewController: UIViewController, UITableViewDataSource, UITableViewDe
                             var postID: String? = nil
                             var postDate: NSDate? = nil
                             var postBody: String? = nil
+//                            var postImage: UIImage? = nil
                             if let postInfo = postData as? NSDictionary {
                                 if let idvalue = postInfo["id"] as? String {
                                     postID = idvalue
@@ -112,6 +167,8 @@ class FeedViewController: UIViewController, UITableViewDataSource, UITableViewDe
                                         postDate = date
                                     }
                                 }
+//                                if let story = postInfo["story"] as? String {
+//                                }
                                 if let message = postInfo["message"] as? String {
                                     postBody = message
                                 }
@@ -150,4 +207,16 @@ class FeedViewController: UIViewController, UITableViewDataSource, UITableViewDe
             completion(data: data, response: response, error: error)
             }.resume()
     }
+    
+
+    /*
+    // MARK: - Navigation
+
+    // In a storyboard-based application, you will often want to do a little preparation before navigation
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        // Get the new view controller using segue.destinationViewController.
+        // Pass the selected object to the new view controller.
+    }
+    */
+
 }

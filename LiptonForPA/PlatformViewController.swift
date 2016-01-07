@@ -16,9 +16,13 @@ class PlatformViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        
+//        self.automaticallyAdjustsScrollViewInsets = false
         platformTextView.contentInset = UIEdgeInsetsMake(20.0,0.0,0,0.0)
         platformTextView.scrollRangeToVisible(NSMakeRange(0, 1))
+//        platformTextView.scrollRangeToVisible(NSMakeRange(0, 100))
+
+        // Do any additional setup after loading the view.
     }
     
     @IBOutlet weak var likeButton: FBSDKLikeButton!
@@ -26,4 +30,15 @@ class PlatformViewController: UIViewController {
     override func viewWillAppear(animated: Bool) {
         likeButton.objectID = "https://www.facebook.com/LiptonForPA"
     }
+    
+    /*
+    // MARK: - Navigation
+
+    // In a storyboard-based application, you will often want to do a little preparation before navigation
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        // Get the new view controller using segue.destinationViewController.
+        // Pass the selected object to the new view controller.
+    }
+    */
+
 }

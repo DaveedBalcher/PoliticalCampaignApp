@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		43081D991BFD1A6300B67467 /* Reachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43081D981BFD1A6300B67467 /* Reachability.swift */; };
 		43081D9B1C002B4A00B67467 /* PlatformViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43081D9A1C002B4900B67467 /* PlatformViewController.swift */; };
 		43081D9D1C002B6600B67467 /* DonationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43081D9C1C002B6600B67467 /* DonationViewController.swift */; };
 		431CBB0B1BFAF40800118FB9 /* FeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 431CBB0A1BFAF40800118FB9 /* FeedViewController.swift */; };
@@ -54,6 +55,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		43081D981BFD1A6300B67467 /* Reachability.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Reachability.swift; sourceTree = "<group>"; };
 		43081D9A1C002B4900B67467 /* PlatformViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlatformViewController.swift; sourceTree = "<group>"; };
 		43081D9C1C002B6600B67467 /* DonationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DonationViewController.swift; sourceTree = "<group>"; };
 		431CBB0A1BFAF40800118FB9 /* FeedViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedViewController.swift; sourceTree = "<group>"; };
@@ -203,6 +205,7 @@
 				437FB8A81BFAC664004C3F47 /* Main.storyboard */,
 				431CBB0C1BFB80B400118FB9 /* PostTableViewCell.swift */,
 				431CBB101BFB913800118FB9 /* PostWithImageTableViewCell.swift */,
+				43081D981BFD1A6300B67467 /* Reachability.swift */,
 				431CBB0E1BFB850600118FB9 /* Post.swift */,
 				437FB8AB1BFAC664004C3F47 /* Assets.xcassets */,
 				437FB8AD1BFAC665004C3F47 /* LaunchScreen.storyboard */,
@@ -376,6 +379,7 @@
 			files = (
 				4339FA631C0D6F0300B345B3 /* ZZAppDelegate.m in Sources */,
 				43081D9D1C002B6600B67467 /* DonationViewController.swift in Sources */,
+				43081D991BFD1A6300B67467 /* Reachability.swift in Sources */,
 				431CBB111BFB913800118FB9 /* PostWithImageTableViewCell.swift in Sources */,
 				437FB8A71BFAC664004C3F47 /* LoginViewController.swift in Sources */,
 				43081D9B1C002B4A00B67467 /* PlatformViewController.swift in Sources */,
